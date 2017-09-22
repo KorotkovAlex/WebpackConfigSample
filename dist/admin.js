@@ -7,7 +7,7 @@
 		var a = typeof exports === 'object' ? factory(require("react-router"), require("react"), require("common")) : factory(root["react-router"], root["react"], root["common"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(this, function(__WEBPACK_EXTERNAL_MODULE_1bc23c18b0ad6713e76d__, __WEBPACK_EXTERNAL_MODULE_910805551be436795309__, __WEBPACK_EXTERNAL_MODULE_92a5dc04bd6f9fb8f29f__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_8__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -70,70 +70,42 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "ea1f7b44187938aacf6e");
+/******/ 	return __webpack_require__(__webpack_require__.s = 29);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "1bc23c18b0ad6713e76d":
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_1bc23c18b0ad6713e76d__;
-
-/***/ }),
-
-/***/ "3d5f9fcb226e0aeef858":
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__("1bc23c18b0ad6713e76d"))(16);
+module.exports = (__webpack_require__(2))(16);
 
 /***/ }),
 
-/***/ "63f14ac74ce296f77f4d":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__("910805551be436795309"))(172);
-
-/***/ }),
-
-/***/ "657e23e47d6bc2372772":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__("1bc23c18b0ad6713e76d"))(271);
-
-/***/ }),
-
-/***/ "910805551be436795309":
+/***/ 2:
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_910805551be436795309__;
+module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
 /***/ }),
 
-/***/ "92a5dc04bd6f9fb8f29f":
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_92a5dc04bd6f9fb8f29f__;
-
-/***/ }),
-
-/***/ "ea1f7b44187938aacf6e":
+/***/ 29:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _react = __webpack_require__("3d5f9fcb226e0aeef858");
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__("63f14ac74ce296f77f4d");
+var _reactDom = __webpack_require__(3);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRouter = __webpack_require__("657e23e47d6bc2372772");
+var _reactRouter = __webpack_require__(6);
 
-var _common = __webpack_require__("92a5dc04bd6f9fb8f29f");
+var _common = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -143,6 +115,34 @@ _reactDom2.default.render(_react2.default.createElement(
     _react2.default.createElement(_common.Component, null),
     _react2.default.createElement(_common.Component2, null)
 ), document.getElementById("admin"));
+
+/***/ }),
+
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(4))(172);
+
+/***/ }),
+
+/***/ 4:
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_4__;
+
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(2))(271);
+
+/***/ }),
+
+/***/ 8:
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_8__;
 
 /***/ })
 

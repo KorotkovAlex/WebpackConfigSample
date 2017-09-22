@@ -4,9 +4,7 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "webpackS": "webpack-dev-server webpack.config.js",
-    "webpack": "webpack --config webpack.config.js",
-    "test": "mocha --compilers js:babel-core/register src/tests/*.js"
+    "webpack": "webpack --config webpack.config.js"
   },
   "author": "alex",
   "license": "ISC",

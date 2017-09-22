@@ -1,46 +1,4 @@
 const webpack = require('webpack');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
-var vendors = {
-    'react': 'react',
-    'prop-types': 'prop-types',
-    'react-redux': 'react-redux',
-    'react-router':'react-router',
-    'redux': 'redux',
-    'redux-saga':'redux-saga',            
-    'react-router-redux': 'react-router-redux'
-}
-  
-function getDllReferencePlugin(vendors) {
-    var plugins = [];
-    for (var vendor in vendors) {
-        var plugin = new webpack.DllReferencePlugin({
-            manifest: require(__dirname + '/dist/manifest/' + vendor + '-manifest.json'),
-            sourceType: 'umd',
-            name:vendor
-        });
-        plugins.push(plugin);
-    }
-    plugins.push(new webpack.HashedModuleIdsPlugin({
-        hashFunction: 'sha256',
-        hashDigest: 'hex',
-        hashDigestLength: 20
-    })
-    );
-    return plugins;
-}
-
-var plugins = getDllReferencePlugin(vendors);
-plugins.push(
-    new BundleAnalyzerPlugin(
-        {
-            analyzerMode: 'server',
-            analyzerHost: '127.0.0.1',
-            analyzerPort: 8887,
-            reportFilename: 'analyzer.html'
-        }
-    )
-);
 
 module.exports = [
     {
@@ -115,6 +73,42 @@ module.exports = [
                 }
             ],
         },
-        plugins: plugins
+        plugins: [
+            new webpack.DllReferencePlugin({
+                manifest: require(__dirname + '/dist/manifest/react-manifest.json'),
+                sourceType: 'umd',
+                name:'react'
+            }),
+            new webpack.DllReferencePlugin({
+                manifest: require(__dirname + '/dist/manifest/prop-types-manifest.json'),
+                sourceType: 'umd',
+                name:'prop-types'
+            }),
+            new webpack.DllReferencePlugin({
+                manifest: require(__dirname + '/dist/manifest/react-redux-manifest.json'),
+                sourceType: 'umd',
+                name:'react-redux'
+            }),
+            new webpack.DllReferencePlugin({
+                manifest: require(__dirname + '/dist/manifest/react-router-manifest.json'),
+                sourceType: 'umd',
+                name:'react-router'
+            }),
+            new webpack.DllReferencePlugin({
+                manifest: require(__dirname + '/dist/manifest/react-router-redux-manifest.json'),
+                sourceType: 'umd',
+                name:'react-router-redux'
+            }),
+            new webpack.DllReferencePlugin({
+                manifest: require(__dirname + '/dist/manifest/redux-manifest.json'),
+                sourceType: 'umd',
+                name:'redux'
+            }),
+            new webpack.DllReferencePlugin({
+                manifest: require(__dirname + '/dist/manifest/redux-saga-manifest.json'),
+                sourceType: 'umd',
+                name:'redux-saga'
+            })
+        ]
     }
 ];
