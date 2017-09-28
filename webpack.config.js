@@ -49,9 +49,9 @@ module.exports = [
             common: 'common'
         }],
         entry: {
-            admin: './src/components/admin',
-            menu: './src/components/menu',
-            common: './src/components/common'
+            admin: './src/components/MainArea',
+            menu: './src/components/MenuArea',
+            common: './src/components/Common'
         },
         output: {
             path: __dirname + '/dist',

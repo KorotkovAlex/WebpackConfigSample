@@ -1,11 +1,8 @@
-import Component from './component';
-import Component2 from './component2';
-import Component3 from './component3';
-
-
+import asyncComponent from './AsyncComponent.jsx';
+import {store, history} from './App.jsx';
 export {
-    Component,
-    Component2,
-    Component3,
+    asyncComponent,
+    store,
+    history
 };
  
