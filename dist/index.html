@@ -10,13 +10,13 @@
 </head>
 <body>
     <div id="menu"></div>
-    <div id="admin"></div> 
+    <div id="main"></div> 
 
     <script>
         requirejs.config({
             paths:{
                 'menu': '/menuArea',
-                'admin': '/mainArea',
+                'main': '/mainArea',
                 'common': '/common',                           
                 'react': '/vendors/react',
                 'redux-saga':'/vendors/redux-saga',
@@ -32,8 +32,8 @@
             menu.myRender('menu','/test');
         });
 
-        require(['admin'], function (admin) {
-            admin.myRender('admin','/test');
+        require(['main'], function (main) {
+            admin.myRender('main','/test');
         });  
 
     </script> 
