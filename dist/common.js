@@ -2793,11 +2793,12 @@ var _reducer2 = _interopRequireDefault(_reducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Создаем store
 var store = exports.store = (0, _redux.createStore)((0, _redux.combineReducers)({
     reducer: _reducer2.default,
     routing: _reactRouterRedux.routerReducer
 }));
-
+// Синхронизируем history со store
 var history = exports.history = (0, _reactRouterRedux.syncHistoryWithStore)(_reactRouter.browserHistory, store);
 
 /***/ }),

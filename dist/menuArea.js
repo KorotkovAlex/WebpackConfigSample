@@ -39,7 +39,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		6: 0
+/******/ 		5: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -152,7 +152,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 66);
+/******/ 	return __webpack_require__(__webpack_require__.s = 67);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1079,7 +1079,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_58__;
 /* 63 */,
 /* 64 */,
 /* 65 */,
-/* 66 */
+/* 66 */,
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1131,27 +1132,30 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var AsyncAuthorization = (0, _common.asyncComponent)(function () {
-    return __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, 108));
-});
-var AsyncSearch = (0, _common.asyncComponent)(function () {
-    return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 109));
-});
-var AsyncMain = (0, _common.asyncComponent)(function () {
-    return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, 110));
+var MenuComponent = (0, _common.asyncComponent)(function () {
+    return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 111));
 });
 
-var MainArea = function (_React$Component) {
-    (0, _inherits3.default)(MainArea, _React$Component);
+var MenuArea = function (_React$Component) {
+    (0, _inherits3.default)(MenuArea, _React$Component);
 
-    function MainArea(props) {
-        (0, _classCallCheck3.default)(this, MainArea);
-        return (0, _possibleConstructorReturn3.default)(this, (MainArea.__proto__ || (0, _getPrototypeOf2.default)(MainArea)).call(this, props));
+    function MenuArea(props) {
+        (0, _classCallCheck3.default)(this, MenuArea);
+
+        var _this = (0, _possibleConstructorReturn3.default)(this, (MenuArea.__proto__ || (0, _getPrototypeOf2.default)(MenuArea)).call(this, props));
+
+        console.log(_this.props.reducer);
+        return _this;
     }
+    // Создаем Router.
+    // В MenuComponent передаем basePath, для того чтобы в store сохранить значение 
 
-    (0, _createClass3.default)(MainArea, [{
+
+    (0, _createClass3.default)(MenuArea, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
                 _reactRedux.Provider,
                 { store: _common.store },
@@ -1160,22 +1164,26 @@ var MainArea = function (_React$Component) {
                     { history: _common.history },
                     _react2.default.createElement(
                         _reactRouter.Route,
-                        { path: this.props.basePath, component: AsyncMain },
-                        _react2.default.createElement(_reactRouter.Route, { path: this.props.basePath + '/search', component: AsyncSearch }),
-                        _react2.default.createElement(_reactRouter.Route, { path: this.props.basePath + '/authorization', component: AsyncAuthorization })
+                        { path: this.props.basePath, component: function component() {
+                                return _react2.default.createElement(MenuComponent, { basePath: _this2.props.basePath });
+                            } },
+                        _react2.default.createElement(_reactRouter.Route, { path: this.props.basePath + '/search', component: MenuComponent }),
+                        _react2.default.createElement(_reactRouter.Route, { path: this.props.basePath + '/authorization', component: MenuComponent })
                     )
                 )
             );
         }
     }]);
-    return MainArea;
+    return MenuArea;
 }(_react2.default.Component);
 
 function myRender(name, basePath) {
-    return _reactDom2.default.render(_react2.default.createElement(MainArea, { basePath: basePath }), document.getElementById(name));
+    return _reactDom2.default.render(
+    // Вызываем компонент и передаем basePath
+    _react2.default.createElement(MenuArea, { basePath: basePath }), document.getElementById(name));
 }
 
-exports.default = MainArea;
+exports.default = MenuArea;
 
 /***/ })
 /******/ ]);

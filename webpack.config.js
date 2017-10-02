@@ -3,6 +3,7 @@ const webpack = require('webpack');
 module.exports = [
     {
         name: 'vendor',
+        // Добавлем библиотеки
         entry: {
             'react-router-redux':['react-router-redux'],
             'react':['react','react-dom'],
@@ -45,12 +46,13 @@ module.exports = [
         resolve: {
             extensions: ['.js', '.jsx']
         },
+        // Указываем common, как внешнюю библиотеку 
         externals: [{
             common: 'common'
         }],
         entry: {
-            admin: './src/components/MainArea',
-            menu: './src/components/MenuArea',
+            mainArea: './src/components/MainArea',
+            menuArea: './src/components/MenuArea',
             common: './src/components/Common'
         },
         output: {

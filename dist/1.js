@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 109:
+/***/ 111:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40,31 +40,84 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRedux = __webpack_require__(54);
 
+var _reactRouter = __webpack_require__(36);
+
+var _propTypes = __webpack_require__(55);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var SearchComponent = function (_React$Component) {
-    (0, _inherits3.default)(SearchComponent, _React$Component);
+var MenuComponent = function (_React$Component) {
+    (0, _inherits3.default)(MenuComponent, _React$Component);
 
-    function SearchComponent() {
-        (0, _classCallCheck3.default)(this, SearchComponent);
-        return (0, _possibleConstructorReturn3.default)(this, (SearchComponent.__proto__ || (0, _getPrototypeOf2.default)(SearchComponent)).apply(this, arguments));
+    function MenuComponent(props) {
+        (0, _classCallCheck3.default)(this, MenuComponent);
+        return (0, _possibleConstructorReturn3.default)(this, (MenuComponent.__proto__ || (0, _getPrototypeOf2.default)(MenuComponent)).call(this, props));
     }
 
-    (0, _createClass3.default)(SearchComponent, [{
+    (0, _createClass3.default)(MenuComponent, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            // сохраняем basePath в store, если еще не создан
+            if (this.props.reducer.basePath == '') {
+                this.props.changeBasePath(this.props.basePath);
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
-            console.log("searchComponent");
             return _react2.default.createElement(
-                'h2',
+                'div',
                 null,
-                'I\'m searchComponent'
+                _react2.default.createElement(
+                    'ul',
+                    { className: 'uk-card-default uk-card-body uk-list-divider uk-list uk-align-left' },
+                    _react2.default.createElement(
+                        'li',
+                        { className: 'uk-text-center' },
+                        'Menu'
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            _reactRouter.Link,
+                            { to: this.props.basePath + '/search' },
+                            'Search'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            _reactRouter.Link,
+                            { to: this.props.basePath + '/authorization' },
+                            'Authorization'
+                        )
+                    )
+                )
             );
         }
     }]);
-    return SearchComponent;
+    return MenuComponent;
 }(_react2.default.Component);
 
-exports.default = SearchComponent;
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        changeBasePath: function changeBasePath(event) {
+            return dispatch({ type: 'CHANGE_BASE_PATH', value: event });
+        }
+    };
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+    return state;
+};
+
+var Menu = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MenuComponent);
+
+exports.default = Menu;
 
 /***/ })
 

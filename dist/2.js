@@ -53,6 +53,8 @@ var MainComponent = function (_React$Component) {
     (0, _createClass3.default)(MainComponent, [{
         key: 'render',
         value: function render() {
+            //this.props.children рендер всех дочерних компонентов(search,authorization). 
+            //Зависит какие в MainArea.jsx вложенные Router 
             return _react2.default.createElement(
                 'div',
                 { className: 'uk-width-1-2 uk-align-center uk-text-center' },
