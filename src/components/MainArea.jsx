@@ -6,18 +6,35 @@ import {asyncComponent, store, history} from 'common';
 const AsyncAuthorization = asyncComponent(() => import('./AuthorizationComponent.jsx'));
 const AsyncSearch = asyncComponent(() => import('./SearchComponent.jsx'));
 const AsyncMain = asyncComponent(() => import('./MainComponent.jsx'));
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-export function myRender(name) {
+
+class MainArea extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() { 
+        return ( 
+            <Provider store = {store}>
+                <Router history = {history}>
+                    <Route path = {this.props.basePath} component={AsyncMain}>                  
+                        <Route path = {this.props.basePath + '/search'} component = {AsyncSearch}/>
+                        <Route path = {this.props.basePath + '/authorization'} component = {AsyncAuthorization}/>
+                    </Route>
+                </Router>
+            </Provider>
+        )
+    };
+}
+
+export function myRender(name, basePath) {
     return ReactDom.render(
-        <Provider store = {store}>
-            <Router history = {history}>
-                <Route path = '/' component = {AsyncMain}>  
-                    <Route path = 'search' component = {AsyncSearch}/> 
-                    <Route path = 'authorization' component = {AsyncAuthorization}/>
-                </Route>
-            </Router>
-        </Provider>, 
+        // Вызываем компонент и передаем basePath
+        <MainArea basePath={basePath} /> ,
         document.getElementById(name)
     );
 }
 
+export default MainArea;

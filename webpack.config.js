@@ -14,7 +14,7 @@ module.exports = [
         },
         output: {
             path: __dirname + '/dist/vendors',
-            publicPath: "/dist/",
+            publicPath: "/",
             filename: '[name].js',
             libraryTarget: 'umd', 
         },
@@ -57,7 +57,7 @@ module.exports = [
             path: __dirname + '/dist',
             filename: '[name].js',
             libraryTarget: 'umd',
-            publicPath:'/dist/',
+            publicPath:'/',
         }, 
         module: {
             loaders: [

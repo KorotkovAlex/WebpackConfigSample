@@ -3,9 +3,10 @@ var app = express();
 var engines = require('consolidate');
 var http = require('http');
 
-
-app.use('/dist',express.static('./dist'));
-app.set('views', __dirname + '/views');
+// Указываем статические файлы для сервера
+app.use('/',express.static('./dist'));
+// Указываем где view 
+app.set('views', __dirname + '/dist');
 app.engine('html', engines.mustache);
 app.set('view engine', 'html');
 
@@ -14,5 +15,5 @@ app.get('*', function (req, res) {
 });
 
 http.createServer(app).listen(7000, function () {
-    console.log('server run');
+    console.log('server run http://localhost:700');
 });
