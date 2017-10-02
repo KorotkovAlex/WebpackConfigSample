@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = [
     {
@@ -76,6 +77,14 @@ module.exports = [
             ],
         },
         plugins: [
+            new BundleAnalyzerPlugin(
+                {
+                    analyzerMode: 'server',
+                    analyzerHost: '127.0.0.1',
+                    analyzerPort: 8887,
+                    reportFilename: 'pluginsTest1.html'
+                }
+            ),
             new webpack.DllReferencePlugin({
                 manifest: require(__dirname + '/dist/manifest/react-manifest.json'),
                 sourceType: 'umd',
