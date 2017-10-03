@@ -15,5 +15,5 @@ app.get('*', function (req, res) {
 });
 
 http.createServer(app).listen(7000, function () {
-    console.log('server run http://localhost:700');
+    console.log('server run http://localhost:7000');
 });

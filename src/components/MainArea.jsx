@@ -15,7 +15,7 @@ class MainArea extends React.Component {
         super(props);
     }
 
-    render() { 
+    render() {
         return ( 
             <Provider store = {store}>
                 <Router history = {history}>

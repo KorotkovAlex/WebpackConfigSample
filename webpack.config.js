@@ -4,7 +4,7 @@ var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlug
 module.exports = [
     {
         name: 'vendor',
-        // Добавлем библиотеки
+        // Добавляем библиотеки
         entry: {
             'react-router-redux':['react-router-redux'],
             'react':['react','react-dom'],
